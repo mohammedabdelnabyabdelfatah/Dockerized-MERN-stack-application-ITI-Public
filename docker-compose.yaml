@@ -1,0 +1,47 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./mern/backend
+    ports:
+      - "5050:5050"
+    networks:
+      - mern_network
+    environment:
+      # Updated the Mongo URI to refer to the "mongodb" service
+      MONGO_URI: mongodb://mongodb:27017/mydatabase
+    depends_on:
+      - mongodb
+    restart: always
+
+  frontend:
+    build: ./mern/frontend
+    ports:
+      - "5173:5173"
+    networks:
+      - mern_network
+    environment:
+      # Points to the backend service by its name
+      REACT_APP_API_URL: http://backend:5050
+    depends_on:
+      - backend
+    restart: always
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    networks:
+      - mern_network
+    volumes:
+      - mongo-data:/data/db
+    restart: always
+
+networks:
+  mern_network:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local
+
