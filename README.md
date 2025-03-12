@@ -1,6 +1,9 @@
-# A simple MERN stack application 
+# Dockorized MERN stack application 
 
 ### Create a network for the docker containers
+![415943810-a3b7a9ac-401c-4dd1-9846-a6cf252e5f70](https://github.com/user-attachments/assets/0446560b-d542-4e17-a443-73d1de1b5d91)
+ITI Supervisor: https://github.com/Ranaahmedit
+
 
 `docker network create demo`
 
@@ -37,5 +40,8 @@ docker build -t mern-backend .
 ## Using Docker Compose
 
 `docker compose up -d`
+![Capture](https://github.com/user-attachments/assets/eb3c871f-a606-432d-ad49-965e1f475ed5)
 
-# Dockerized-MERN-stack-application-ITI-Public
+## Docker hub 
+
+
